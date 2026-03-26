@@ -8,7 +8,7 @@ export const AuthProvider = ({ children }) => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch('http://localhost:8000/users/me', { credentials: 'include' })
+        fetch(`${import.meta.env.VITE_API_URL}/users/me`, { credentials: 'include' })
         .then(res => res.ok ? res.json(): null)
         .then(data => {
             if(data){

@@ -13,7 +13,7 @@ function Header() {
     }
 
     const handleLogout = async () => {
-        await fetch('http://localhost:8000/users/logout', {
+        await fetch(`${import.meta.env.VITE_API_URL}/users/logout`, {
             method: 'POST',
             credentials: 'include'
         });

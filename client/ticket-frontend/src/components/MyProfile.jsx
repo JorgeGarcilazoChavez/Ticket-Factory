@@ -8,7 +8,7 @@ function MyProfilePage({ className = "" }){
     const [eventArray, checkEvents] = useState([]);
     const [showEvents, userHasEvents] = useState(false);
 
-    const requestUrl = `http://localhost:8000/tickets/${user.id}`;
+    const requestUrl = `${import.meta.env.VITE_API_URL}/tickets/${user.id}`;
     
         useEffect(()=>{
             fetch(requestUrl, )

@@ -29,7 +29,7 @@ function SignUp({ className = "" }) {
         isLoading(true);
 
         try{
-            const res = await fetch('http://localhost:8000/users', {
+            const res = await fetch(`${import.meta.env.VITE_API_URL}/users`, {
                 method: 'POST',
                 credentials: 'include',
                 headers: { 'Content-Type': "application/json"},

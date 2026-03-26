@@ -14,14 +14,14 @@ function BuyTickets({ className = "", info }) {
     const { user } = useAuth();
 
     useEffect(() => {
-        fetch(`http://localhost:8000/concerts/${id}`)
+        fetch(`${import.meta.env.VITE_API_URL}/concerts/${id}`)
             .then(r => r.json())
             .then(data => loadConcertInfo(data))
             .catch(err => console.log('Error:', err));
     }, []);
 
     const fetchTickets = () => {
-        fetch(`http://localhost:8000/tickets/buy/${id}`)
+        fetch(`${import.meta.env.VITE_API_URL}/tickets/buy/${id}`)
             .then(r => r.json())
             .then(data => loadTicketInfo(data))
             .catch(err => console.log('Error:', err));
@@ -35,7 +35,7 @@ function BuyTickets({ className = "", info }) {
         e.preventDefault();
         setIsPurchasing(true);
         try {
-            await fetch(`http://localhost:8000/tickets/${selectedTicketInfo.id}`, {
+            await fetch(`${import.meta.env.VITE_API_URL}/tickets/${selectedTicketInfo.id}`, {
                 method: 'PUT',
                 headers: { 'Content-Type': "application/json" },
                 body: JSON.stringify({ userId: user.id }),

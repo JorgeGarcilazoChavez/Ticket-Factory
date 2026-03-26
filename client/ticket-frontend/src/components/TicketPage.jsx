@@ -7,7 +7,7 @@ function TicketPage({ className = "" }) {
     const [showTickets, checkUserTickets] = useState(false);
     const [ticketArray, changeTicketArray] = useState([])
 
-    const requestUrl = `http://localhost:8000/tickets/${user.id}`;
+    const requestUrl = `${import.meta.env.VITE_API_URL}/tickets/${user.id}`;
 
     useEffect(()=>{
         fetch(requestUrl, )

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { Link } from "react-router"
 
 function MainPage({ className = "" }) {
-    const requestUrl = 'http://localhost:8000/concerts'
+    const requestUrl = `${import.meta.env.VITE_API_URL}/concerts`
     const [concertInfo, loadConcertInfo] = useState([]);
 
      useEffect(()=>{
