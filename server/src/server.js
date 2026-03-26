@@ -15,11 +15,13 @@ async function start(){
         await sequelize.authenticate();
         console.log('Connection has been established with the database succesfully');
         // Models Sync to DB
-        await sequelize.sync({ force: true })
+        await sequelize.sync({ force: false })
         console.log('Models synced')
 
-        // Seeding database
-        await seedDevData();
+        if(process.env.SEED_DB === 'true'){
+            await seedDevData();
+            console.log('Database seeded')
+        }
 
         // Start server
         app.listen(process.env.PORT, ()=>{
